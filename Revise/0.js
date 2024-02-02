@@ -98,3 +98,4 @@ function runningSum(nums) {
     return arr
 };
 // console.log(runningSum([1,2,3,4])) 
+
