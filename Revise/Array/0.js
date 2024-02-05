@@ -157,10 +157,126 @@ function candy(candies, extraCandies) {
         }
         return ans;
     }
-console.log(candy([2,3,5,1,3], 3));
+// console.log(candy([2,3,5,1,3], 3));
 
 // let candies = [2,3,5,1,3]
 // const newcan = candies.map((item)=>{
 //     return item + 3
 // })
 // console.log(newcan)
+
+
+//Given the array nums, for each nums[i] find out how many numbers in the array are smaller than it. That is, for each nums[i] you have to count the number of valid j's such that j != i and nums[j] < nums[i].
+// Return the answer in an array.
+
+//Input: nums = [8,1,2,2,3]
+// Output: [4,0,1,1,3]
+
+function smallest(nums){
+      let ans = [];
+      for (let i = 0; i < nums.length; i++) {
+        let count = 0
+        for (let j = 0; j < nums.length; j++) {
+         if(nums[j] < nums[i]) {
+                count++;
+            }
+        }
+        ans.push(count)
+      }
+      
+    return ans;
+    }
+
+// console.log(smallest([8,1,2,2,3]))
+
+
+// A pangram is a sentence where every letter of the English alphabet appears at least once.
+// Given a string sentence containing only lowercase English letters, return true if sentence is a pangram, or false otherwise.
+// sentence = "thequickbrownfoxjumpsoverthelazydog"
+//output = true
+
+let sentence = "thequickbrownfoxjumpsoverthelazydog"
+let r = sentence.split("").sort()
+// console.log(r)
+const newarrr = Array.from(new Set(r) )
+// console.log(newarrr.length)
+
+function letter(sentence){
+    const newarrr = Array.from(new Set(sentence.split("").sort()) )
+    if (newarrr.length ==26) return true
+    return false;
+}
+// console.log(letter("thequickbrownfoxjumpsoverthelazydog"))
+
+// items = [["phone","blue","pixel"],["computer","silver","lenovo"],["phone","gold","iphone"]], 
+// ruleKey = "color", ruleValue = "silver"
+
+
+
+// let n = items.flat(3)
+// console.log(n)
+// for (let i = 0; i < n.length; i++) {
+//     if (n[i] == ruleKey) {
+        
+//     }
+    
+// }
+
+
+// let gain =[-4,-3,-2,-1,4,3,2]
+// let current =0
+// let altitude = []
+// current += gain[i]
+// let temp = current + gain[i]
+//current => -3
+// altitude.push(temp)
+//altitude = [0,-4,-7 ,-9,-10,-6,-3,-1]
+// [0,-4,-7,-9,-10,-6,-3,-1
+function no(gain){
+    let current =0
+    let altitude = [0]
+    for (let i = 0; i < gain.length; i++) {
+        let temp = current + gain[i]
+        current = temp
+        altitude.push(temp)
+    }
+    
+    // return  Math.max(...altitude)
+    return altitude
+}
+// console.log(no([-4,-3,-2,-1,4,3,2]))
+
+// let image = [[1,1,0],[1,0,1],[0,0,0]]
+//110101000
+//000101011
+//111010100
+//001010111
+// console.log(non)
+function reverse(image){
+ return  image.map((x)=>x.reverse().map((i)=> i?0:1))
+}
+// console.log(reverse([[1,1,0,0],[1,0,0,1],[0,1,1,1],[1,0,1,0]]))
+//[[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]
+
+//Input: nums = [12,345,2,6,7896]
+let nums = [12,345,2,6,7896]
+function even(nums){
+    let count =0
+    for (let i = 0; i < nums.length; i++) {
+         let arr = Array.from(String(nums[i]), Number);
+         if(arr.length%2 ===0 ){
+            count++
+         }
+    }
+    return count
+}
+// console.log(even([555,901,482,1771]));
+
+
+                
+
+
+
+
+
+
