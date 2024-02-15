@@ -41,11 +41,29 @@ function createArray(start, end){
 
 //fibonacci
 
-// 1,1,2,3,5,8,13
+// 0,1,1,2,3,5,8,13
 
 function fib(n) {
-    
+    let arr = [0,1];
+    for(let i = 2; i <=n; i++) {
+        arr.push(arr[i-2] + arr[i-1])
+    }  
+   return arr
+}
+// console.log(fib(6))
+function fibReccursion(n) {
+    if(n<=1) return n;
+    return fibReccursion(n-1) + fibReccursion(n-2) ;
+}
+// console.log(fibReccursion(6))
+
+
+//reverse a string "Hello"
+
+function string(str) {
+    if(str ===""){
+        return ""
+    }else return string(str.substr(1)) + str.charAt(0)
 }
 
-
-
+// console.log(string("hello"))
