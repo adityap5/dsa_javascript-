@@ -44,7 +44,7 @@ class LinkedList {
             return
         }
 
-        const newnode = new Node();
+        const newnode = new Node(data);
         if (index === 0) {
             newnode.next = this.head
             this.head = newnode
@@ -53,12 +53,9 @@ class LinkedList {
         let current = this.head;
         for (let i = 0; i < index - 1; i++) {
             current = current.next;
-
-
         }
         newnode.next = current.next
         current.next = newnode;
-
     }
 
     removeTop() {
@@ -72,7 +69,6 @@ class LinkedList {
         if (!this.head) {
             return;
         }
-
         let current = this.head
         while (current.next.next) {
             current = current.next
@@ -83,8 +79,6 @@ class LinkedList {
         if (index < 0 || index > this.size()) {
             console.error("invalid Index!!")
         }
-
-
         if (index === 0) {
             this.head = this.head.next
             return;
@@ -92,13 +86,10 @@ class LinkedList {
         let current = this.head;
         for (let i = 0; i < index - 1; i++) {
             current = current.next;
-
-
         }
         if (current.next) {
             current.next = current.next.next
         }
-
     }
     print() {
         let current = this.head
@@ -115,9 +106,15 @@ const linkedlist = new LinkedList();
 linkedlist.addFirst(4)
 linkedlist.addFirst(5)
 linkedlist.addFirst(6)
+linkedlist.print()
 linkedlist.addlast(7)
 linkedlist.print()
 console.log(`the size of linkedlist is ${linkedlist.size()}`)
 linkedlist.addAt(2, 9)
 linkedlist.print()
+linkedlist.removeTop()
+linkedlist.print()
+linkedlist.removeLast()
+linkedlist.print()
+
 
