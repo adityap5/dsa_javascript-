@@ -1,1 +1,1 @@
-i++
+ return distance -1
