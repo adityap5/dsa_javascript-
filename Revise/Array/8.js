@@ -207,4 +207,47 @@ function pro(nums) {
   }
   return maxP
 }
-console.log(pro([2,3,-2,4]))
+// console.log(pro([2,3,-2,4]))
+
+//2529
+
+function count(nums) {
+    let p=0,n=0
+    for (let i=0; i<nums.length; i++){
+        if (nums[i]+ (-0) !=  nums[i] )  {
+            p++
+        }else{
+            n++
+        }
+    }
+    return Math.max(p,n)
+}
+// console.log(count([-2,-1,-1,1,2,3]))
+
+//347
+
+function fre(nums,k) {
+    let myMap = {};
+    let result = []
+    let b = []
+    for (let i = 0; i < nums.length; i++) {
+        if(!myMap[nums[i]]){
+            myMap[nums[i]] = 1
+        }else{
+            myMap[nums[i]]++
+        }
+    }
+    for(let [num,val] of Object.entries(myMap)){
+        if(!b[val]){
+            b[val] =new Set().add(num)
+        }else{
+            b[val] = b[val].add(num)
+        }
+    }
+    for (let i = b.length-1; i >=0; i--) {
+        if(b[i]) result.push(...b[i]);
+        if(result.length === k) break;
+    }
+    return result
+}
+console.log(fre([[1,1,1,2,2,3]],2))

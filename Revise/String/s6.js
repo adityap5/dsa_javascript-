@@ -151,24 +151,24 @@ function pre(words, pref) {
 function prff(words, s) {
     let count = 0
     for (let i = 0; i < words.length; i++) {
-      if (words[i].charAt(0) === s[0]){
-count++
-      }
+        if (words[i].charAt(0) === s[0]) {
+            count++
+        }
     }
     return count
 }
 
 // console.log(prff(["a","b","c","ab","bc","abc"], "abc"));
 
-function palindrome(s) {  
-  s= s.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
-  let c =Math.floor(s.length/2)
-  for (let i = 0; i <s.length; i++) {
-    if (s[i] !== s[s.length -1 -i]) {
-        return false
-      }
-  }
-  return true
+function palindrome(s) {
+    s = s.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
+    let c = Math.floor(s.length / 2)
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] !== s[s.length - 1 - i]) {
+            return false
+        }
+    }
+    return true
 }
 // console.log(palindrome( "race a car"))
 
@@ -183,11 +183,11 @@ function palindrome(s) {
 // Example 3:
 // Input: ransomNote = "aa", magazine = "aab"
 // Output: true
-function made(ransomNote,magazine) {
-// magazine =magazine.split("").sort().join("")
-// ransomNote = ransomNote.split("").sort().join("")
+function made(ransomNote, magazine) {
+    // magazine =magazine.split("").sort().join("")
+    // ransomNote = ransomNote.split("").sort().join("")
     return magazine.includes(ransomNote)
-   
+
 
 }
 // console.log(made("bg","efjbdfbdgfjhhaiigfhbaejahgfbbgbjagbddfgdiaigdadhcfcj"))
@@ -197,15 +197,31 @@ function made(ransomNote,magazine) {
 // Explanation: The five segments are ["Hello,", "my", "name", "is", "John"]
 
 function splitingss(s) {
-  
-s= s.split(" ")
-let count = 0
-for (let i = 0; i < s.length; i++) {
-    if (s[i] !== " " && s[i] !== '') {
-        count++
+
+    s = s.split(" ")
+    let count = 0
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] !== " " && s[i] !== '') {
+            count++
+        }
     }
-}
-return count
+    return count
 }
 // console.log(splitingss("Hello, my name is John, "))
 
+//2390
+
+function rem(s) {
+    let i, ans = "", stars = 0;
+    for (i = s.length - 1; i >= 0; i--) {
+        if (s[i] == '*') {
+            stars++;
+        } else if (stars == 0) {
+            ans = s[i] + ans;
+        } else {
+            stars--;
+        }
+    }
+    return ans;
+}
+console.log(rem("il**autonrd**cl**nh*up*afpizp****d*a****lst"))
