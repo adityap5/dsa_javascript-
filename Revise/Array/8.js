@@ -1,27 +1,27 @@
 //4
-function mediann(nums1,nums2) {
-    let nums= nums1.concat(nums2).sort((a,b) =>a-b);
-    let half= Math.floor(nums.length/2)
-    if ( nums.length%2 !==0) {
+function mediann(nums1, nums2) {
+    let nums = nums1.concat(nums2).sort((a, b) => a - b);
+    let half = Math.floor(nums.length / 2)
+    if (nums.length % 2 !== 0) {
         return nums[half]
     }
-    return (nums[half-1]+nums[half])/2
+    return (nums[half - 1] + nums[half]) / 2
 }
 // console.log(mediann([1,3],[2]))
 
 //11.
 function water(height) {
-   let left = 0 , right = height.length -1 , maxarea =0;
+    let left = 0, right = height.length - 1, maxarea = 0;
 
-   while (left < right) {
-    let area = Math.min(height[left], height[right])*(right-left);
+    while (left < right) {
+        let area = Math.min(height[left], height[right]) * (right - left);
 
-    maxarea = Math.max(maxarea, area)
-    if (height[left]<height[right]) {
-        left++
-    }else right--
-   }
-   return maxarea
+        maxarea = Math.max(maxarea, area)
+        if (height[left] < height[right]) {
+            left++
+        } else right--
+    }
+    return maxarea
 }
 // console.log(water([1,1]))
 
@@ -36,32 +36,32 @@ function water(height) {
 
 function triplet(nums) {
     let output = []
-   nums =  nums.sort((a,b) => a - b)
+    nums = nums.sort((a, b) => a - b)
     for (let i = 0; i < nums.length; i++) {
         for (let j = 0; j < nums.length; j++) {
-           for (let k = 0; k < nums.length; k++) {
-            if (i != j && i != k && j != k) {
-           if (nums[i] + nums[j] + nums[k] ===1) {
-            let ans = [nums[i],nums[j],nums[k]].sort((a,b) => a - b)
-           
-            let isPresent = output.some(subarray =>
-                subarray.length === ans.length &&
-                subarray.every((element, index) => element === ans[index])
-            );
-            
-            if (!isPresent) {
-                output.push([nums[i],nums[j],nums[k]]);
-                // console.log(output)
-            } 
-           }
+            for (let k = 0; k < nums.length; k++) {
+                if (i != j && i != k && j != k) {
+                    if (nums[i] + nums[j] + nums[k] === 1) {
+                        let ans = [nums[i], nums[j], nums[k]].sort((a, b) => a - b)
+
+                        let isPresent = output.some(subarray =>
+                            subarray.length === ans.length &&
+                            subarray.every((element, index) => element === ans[index])
+                        );
+
+                        if (!isPresent) {
+                            output.push([nums[i], nums[j], nums[k]]);
+                            // console.log(output)
+                        }
+                    }
+                }
+            }
+
         }
-           }
-            
-        }
-        
+
     }
-    
-return output;
+
+    return output;
 }
 // console.log(triplet([-1,0,1,2,-1,-4]))
 
@@ -73,7 +73,7 @@ function triplet(nums) {
     nums.sort((a, b) => a - b);
 
     for (let i = 0; i < nums.length - 2; i++) {
-        if (i === 0 || (i > 0 && nums[i] !== nums[i - 1])) { 
+        if (i === 0 || (i > 0 && nums[i] !== nums[i - 1])) {
             let left = i + 1;
             let right = nums.length - 1;
             let target = 0 - nums[i];
@@ -120,7 +120,7 @@ function anan(strs) {
 // Output: [1,2]
 // Explanation: The sum of 2 and 7 is 9. Therefore, index1 = 1, index2 = 2. We return [1, 2].
 
-function addt(numbers , target) {
+function addt(numbers, target) {
     let ans1 = {};
     for (let i = 0; i < numbers.length; i++) {
         let ans2 = target - numbers[i];
@@ -140,12 +140,12 @@ function addt(numbers , target) {
 
 function difference(nums) {
     let maxDiff = 0
-    nums = nums.sort((a,b)=>a-b)
-    for (let i = nums.length; i >=0; i--) {
-        if (nums[i] - nums[i-1] > maxDiff) {
-            maxDiff = nums[i] - nums[i-1]
+    nums = nums.sort((a, b) => a - b)
+    for (let i = nums.length; i >= 0; i--) {
+        if (nums[i] - nums[i - 1] > maxDiff) {
+            maxDiff = nums[i] - nums[i - 1]
         }
-        
+
     }
     return maxDiff
 }
@@ -188,7 +188,7 @@ function minim(nums) {
         if (nums[i] < min) {
             min = nums[i]
         }
-        
+
     }
     return min
 }
@@ -199,55 +199,76 @@ function minim(nums) {
 // Output: 6
 // Explanation: [2,3] has the largest product 6.
 function pro(nums) {
-  let maxP = 0
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[i]*nums[i+1] >= maxP ) {}
-      maxP = nums[i]*nums[i+1]
-      console.log(maxP)
-  }
-  return maxP
+    let maxP = 0
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] * nums[i + 1] >= maxP) { }
+        maxP = nums[i] * nums[i + 1]
+        console.log(maxP)
+    }
+    return maxP
 }
 // console.log(pro([2,3,-2,4]))
 
 //2529
 
 function count(nums) {
-    let p=0,n=0
-    for (let i=0; i<nums.length; i++){
-        if (nums[i]+ (-0) !=  nums[i] )  {
+    let p = 0, n = 0
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] + (-0) != nums[i]) {
             p++
-        }else{
+        } else {
             n++
         }
     }
-    return Math.max(p,n)
+    return Math.max(p, n)
 }
 // console.log(count([-2,-1,-1,1,2,3]))
 
 //347
 
-function fre(nums,k) {
+function fre(nums, k) {
     let myMap = {};
     let result = []
     let b = []
     for (let i = 0; i < nums.length; i++) {
-        if(!myMap[nums[i]]){
+        if (!myMap[nums[i]]) {
             myMap[nums[i]] = 1
-        }else{
+        } else {
             myMap[nums[i]]++
         }
     }
-    for(let [num,val] of Object.entries(myMap)){
-        if(!b[val]){
-            b[val] =new Set().add(num)
-        }else{
+    for (let [num, val] of Object.entries(myMap)) {
+        if (!b[val]) {
+            b[val] = new Set().add(num)
+        } else {
             b[val] = b[val].add(num)
         }
     }
-    for (let i = b.length-1; i >=0; i--) {
-        if(b[i]) result.push(...b[i]);
-        if(result.length === k) break;
+    for (let i = b.length - 1; i >= 0; i--) {
+        if (b[i]) result.push(...b[i]);
+        if (result.length === k) break;
     }
     return result
 }
-console.log(fre([[1,1,1,2,2,3]],2))
+// console.log(fre([[1,1,1,2,2,3]],2))
+
+//674
+function longg(nums) {
+    let c = 1;
+    let k = 1
+    for (let i = 0; i < nums.length - 1; i++) {
+        if (nums[i + 1] > nums[i]) {
+            c++
+        } else {
+            if (c > k) {
+                k = c;
+                c = 1
+            }
+        }
+    }
+    if (c > k) {
+        return c
+    }
+    else { return k }
+}
+console.log(longg([3, 0, 6, 2, 4, 7, 0, 0]))

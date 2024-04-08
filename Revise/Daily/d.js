@@ -180,4 +180,39 @@ function subb(nums,k) {
     }
     return maxL
 }
-console.log(subb([1,2,3,1,2,3,1,2],2))
+// console.log(subb([1,2,3,1,2,3,1,2],2))
+//678
+
+function valid(s) {
+    let c = 0, k = 0;
+
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] === '(') {
+            c++;
+        } else if (s[i] === ')') {
+            if (c === 0 && k === 0) {
+                return false;
+            } else if (c > 0) {
+                c--;
+            } else {
+                k--;
+            }
+        } else if (s[i] === '*') {
+            k++;
+        }
+    }
+
+    while (c > 0) {
+        if (k === 0) {
+            return false;
+        } else if (c > k) {
+            return false;
+        } else {
+            c--;
+            k--;
+        }
+    }
+
+    return true;
+}
+console.log(valid("(*))"))

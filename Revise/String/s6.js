@@ -172,26 +172,6 @@ function palindrome(s) {
 }
 // console.log(palindrome( "race a car"))
 
-// Example 1:
-// Input: ransomNote = "a", magazine = "b"
-// Output: false
-
-// Example 2:
-// Input: ransomNote = "aa", magazine = "ab"
-// Output: false
-
-// Example 3:
-// Input: ransomNote = "aa", magazine = "aab"
-// Output: true
-function made(ransomNote, magazine) {
-    // magazine =magazine.split("").sort().join("")
-    // ransomNote = ransomNote.split("").sort().join("")
-    return magazine.includes(ransomNote)
-
-
-}
-// console.log(made("bg","efjbdfbdgfjhhaiigfhbaejahgfbbgbjagbddfgdiaigdadhcfcj"))
-
 // Input: s = "Hello, my name is John"
 // Output: 5
 // Explanation: The five segments are ["Hello,", "my", "name", "is", "John"]
