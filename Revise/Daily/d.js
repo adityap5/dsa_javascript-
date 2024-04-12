@@ -62,31 +62,31 @@ function one(nums) {
     //         }
     //     }
     // }
-  
+
 }
 // console.log(one([2, 2, 1]))
 
 //287.
 function duplicate(nums) {
     let i = 0;
-    while (i < nums.length){ 
-        if (nums[i] != i +1){
-             let correct = nums[i]-1;
-             if(nums[i] != nums[correct]){
-            swap(nums,i,correct);
-             } else{
-           return nums[i] ; 
-        }
-        }else{
+    while (i < nums.length) {
+        if (nums[i] != i + 1) {
+            let correct = nums[i] - 1;
+            if (nums[i] != nums[correct]) {
+                swap(nums, i, correct);
+            } else {
+                return nums[i];
+            }
+        } else {
             i++;
         }
     }
     return -1;
-   function swap(nums ,i,correct){
-    let temp = nums[i];
-    nums[i] = nums[correct];
-    nums[correct] = temp;
-}
+    function swap(nums, i, correct) {
+        let temp = nums[i];
+        nums[i] = nums[correct];
+        nums[correct] = temp;
+    }
 }
 // console.log(duplicate([1,3,4,2,2]))
 
@@ -116,66 +116,66 @@ function find(nums) {
 
     for (let i = 0; i < n; i++) {
         if (nums[i] <= 0) {
-            
-            nums[i] = n+1
-        }  
+
+            nums[i] = n + 1
+        }
     }
     for (let i = 0; i < n; i++) {
         let index = Math.abs(nums[i]) - 1;
-       if (index < n){
-        nums[index] *= -1;
-       }
-       if(nums[index]>0) {nums[index] *= -1 ; }
+        if (index < n) {
+            nums[index] *= -1;
+        }
+        if (nums[index] > 0) { nums[index] *= -1; }
     }
-  
+
     for (let i = 0; i < n; i++) {
-     if (nums[i] > 0 ) {
-        return i +1
-     }
-     
+        if (nums[i] > 0) {
+            return i + 1
+        }
+
     }
-    return n+1
+    return n + 1
 }
 // console.log(find([1,1]))
 
 //713
 
-function subarr(nums,k) {
+function subarr(nums, k) {
     let n = nums.length;
-    if (k<=1) {
+    if (k <= 1) {
         return 0;
     }
-    let i =0 , j=0, count =0 ,product =1
-    while (j<n) {
-        product *=nums[j]
+    let i = 0, j = 0, count = 0, product = 1
+    while (j < n) {
+        product *= nums[j]
         while (product >= k) {
-            product /=nums[i]
+            product /= nums[i]
             i++;
         }
-        count += (j-i+1);
+        count += (j - i + 1);
         j++
     }
-return count
+    return count
 
 }
 // console.log(subarr([10,5,2,6],100))
 //2958
 
-function subb(nums,k) {
+function subb(nums, k) {
     let start = 0
     let end = 0
     let maxL = 0
     let n = nums.length
     let myMap = new Map()
 
-    while (end<n) {
-        myMap.set(nums[end],myMap.get(nums[end] ?? 0)+1);
-      
-        while (myMap.get(nums[end])>k) {
-            myMap.set(nums[start],myMap.get(nums[start] ?? 0)-1);
+    while (end < n) {
+        myMap.set(nums[end], myMap.get(nums[end] ?? 0) + 1);
+
+        while (myMap.get(nums[end]) > k) {
+            myMap.set(nums[start], myMap.get(nums[start] ?? 0) - 1);
             start++
         }
-        maxL = Math.max(maxL,(end-start+1))
+        maxL = Math.max(maxL, (end - start + 1))
         end++
     }
     return maxL
@@ -215,4 +215,26 @@ function valid(s) {
 
     return true;
 }
-console.log(valid("(*))"))
+// console.log(valid("(*))"))
+//402
+
+function rkd(num, k) {
+    let stack = [] // Initialize a stack to store digits.
+
+    // Iterate through each digit in the input number.
+    for (let digit of num) {
+        // Compare the current digit with the top digit of the stack.
+        while (k > 0 && stack.length > 0 && stack[stack.length - 1] > digit) {
+            stack.pop() // Pop digits from the stack if they are greater than the current digit.
+            k-- // Decrement k as a digit is removed.
+        }
+        stack.push(digit) // Push the current digit onto the stack.
+    }
+
+    // Remove any remaining digits from the end if k is not yet zero.
+    stack.splice(stack.length - k, k);
+
+    // Join the remaining digits in the stack into a string and return it as the result.
+    return stack.join('')
+}
+console.log(rkd("10200", 1))
